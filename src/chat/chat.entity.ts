@@ -6,7 +6,7 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Chat {
+class Chat {
     @PrimaryGeneratedColumn('uuid')
     id: number;
 
@@ -19,3 +19,5 @@ export class Chat {
     @CreateDateColumn()
     createdat: Date;
 }
+ 
+export default Chat;

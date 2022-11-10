@@ -8,7 +8,7 @@ import {
 } from '@nestjs/websockets';
 import { Socket, Server } from 'socket.io';
 import { AppService } from '.././app.service';
-import { Chat } from '../chat/chat.entity';
+import  Chat  from '../chat/chat.entity';
 
 @WebSocketGateway({
   cors: {
