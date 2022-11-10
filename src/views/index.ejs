@@ -43,7 +43,9 @@
 </html>
 
 <script>
-  const socket = io('http://localhost:3000');
+  // const socket = io('http://localhost:3000');
+  const socket = io('http://https://chat-app-pyfz.onrender.com');
+
   const msgBox = document.getElementById('exampleFormControlTextarea1');
   const msgCont = document.getElementById('data-container');
   const email = document.getElementById('email');
@@ -51,7 +53,8 @@
   //get old messages from the server
   const messages = [];
   function getMessages() {
-    fetch('http://localhost:3000/api/chat')
+    // fetch('http://localhost:3000/api/chat')
+    fetch('https://chat-app-pyfz.onrender.com/api/chat')
       .then((response) => response.json())
       .then((data) => {
         loadDate(data);
