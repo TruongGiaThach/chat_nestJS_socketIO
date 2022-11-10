@@ -14,8 +14,8 @@ const databaseConfig: DataSourceOptions = {
   database: process.env.POSTGRES_DB || 'chat',
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
   logging: true,
-  migrationsTableName: "migrations",
-  migrations: [__dirname + '/../migrations/*{.ts,.js}'],
+//   migrationsTableName: "migrations",
+//   migrations: [__dirname + '/../migrations/*{.ts,.js}'],
   synchronize: false,
   
 };
