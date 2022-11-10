@@ -26,9 +26,27 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Requirement before starting
+* Install Docker
+
+## Step 1: Getting started
+
+Start a local development instance with docker-compose
+
+```bash
+docker-compose up -d
+
+```
+
+Now you can navigate to the following URLs:
+
+- Backend OpenAPI docs: http://localhost:7000/docs/
+
 ## Installation
 
 ```bash
+
+
 $ npm install
 ```
 
@@ -61,6 +79,42 @@ $ npm run test:cov
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+
+### Postgresql Tutorial
+
+1. Connect to postgres user 
+```bash
+psql -h localhost -p 5432 -U postgres
+```
+2. Show all database
+```
+\l
+```
+3. In `postgres=#` connect with `app/apptest` database by
+```
+\c apptest
+```
+4. Show all table
+```
+\dt;
+```
+5. Show table detail
+```
+\d [table name]
+```
+6. Show all relations of database
+```
+\d+;
+```
+7. Get data from table with sql query
+```
+select * from [table name]
+select * from users;
+delete from users where email='reactjs.tisoha@gmail.com';
+update users set full_name='Pham' where email='xuanbach123@gmail.com';
+delete role where name='customer';
+```
 
 ## Stay in touch
 
