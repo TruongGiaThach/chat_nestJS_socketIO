@@ -6,7 +6,7 @@ const databaseConfig: DataSourceOptions = {
   name: 'default',
   migrationsRun: true,
   type: 'postgres',
-  host: process.env.POSTGRES_HOST || 'localhost',
+  host: process.env.POSTGRES_HOST || 'host.docker.internal',
 //   host: process.env.POSTGRES_HOST || 'postgres',
   port: +process.env.POSTGRES_PORT || 5432,
   username: process.env.DB_USERNAME || 'postgres',
