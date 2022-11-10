@@ -64,7 +64,7 @@ COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node --from=build /usr/src/app/dist ./dist
 
 #migration
-RUN npm run ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d src/config/data-source.ts migration:run
+RUN npm run migration:run
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
