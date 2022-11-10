@@ -65,7 +65,7 @@ COPY --chown=node:node --from=build /usr/src/app/dist ./dist
 
 #migration
 
-RUN cd /usr/src/app/ && npm run migration:run
+# RUN cd /usr/src/app/ && npm run migration:run
 
 # Start the server using the production build
 CMD [ "node", "dist/main.js" ]
