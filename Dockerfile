@@ -9,4 +9,4 @@ RUN npm ci
 COPY . .
 
 
-CMD ["npm", "start:dev"]
+CMD ["npm", "run start:dev"]
