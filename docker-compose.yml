@@ -1,38 +1,37 @@
-version: "3.9"
+version: '3.9'
 
 services:
-  postgres:
-    image: postgres:12
-    restart: always
-    env_file:
-      - .env
-    healthcheck:
-      test: pg_isready -U postgres
-      interval: 3s
-      timeout: 2s
-      retries: 3
-    ports:
-      - "5432:5432"
-    volumes:
-      - app-db-data:/var/lib/postgresql/data:cached
-
-  api:
+  nest:
+    container_name: 'nest'
     build:
-      dockerfile: Dockerfile
       context: .
-      # Only will build development stage from our dockerfile
-      target: development
+      dockerfile: ./Dockerfile
+
     volumes:
       - .:/usr/src/app
-    env_file:
-    - .env
-    # Run a command against the development stage of the image
-    command: npm run start:dev
+      # - /usr/src/app/node_modules
     ports:
-      - "3000:3000"
+      - ${SERVER_PORT}:${SERVER_PORT}
+      - 9229:9229
+    command: npm run start:debug
+    env_file:
+      - .env
     depends_on:
-      postgres:
-        condition: service_healthy
-
+      - mongo
+  mongo:
+    image: mongo:latest
+    container_name: 'nest_mongo'
+    volumes:
+      - mongodb_data_container:/data/db
+    env_file:
+      - .env
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}
+networks:
+  webnet:
 volumes:
-  app-db-data:
+  mongodb_data_container:
