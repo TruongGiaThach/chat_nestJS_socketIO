@@ -17,4 +17,8 @@ export class MessagesRepository {
     const findAll = await this.messageModel.find({ chat_id: { $all: [id] } });
     return findAll;
   }
+
+  async findAll (): Promise<any>{
+    return await this.messageModel.find();
+  }
 }

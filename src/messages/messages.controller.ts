@@ -23,4 +23,9 @@ export class MessagesController {
   async getAllMessagesByChatId(@Param('id') id: string) {
     return await this.messagesService.findAllMessages(id);
   }
+
+  @Get()
+  async getAllMessages() {
+    return await this.messagesService.findAll();
+  }
 }
