@@ -8,4 +8,4 @@ RUN npm ci
 
 COPY . .
 
-CMD node /usr/src/app/dist/main
+CMD node /dist/main
