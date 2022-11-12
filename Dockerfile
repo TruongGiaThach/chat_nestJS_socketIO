@@ -8,4 +8,4 @@ RUN npm ci
 
 COPY . .
 
-CMD ["run","start"]
+CMD ["node"," /usr/src/appdist/main"]
