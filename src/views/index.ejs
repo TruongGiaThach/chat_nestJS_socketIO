@@ -43,7 +43,7 @@
 </html>
 
 <script>
-  const socket = io('https://687a-113-161-34-227.ap.ngrok.io');
+  const socket = io('https://chat-app-pyfz.onrender.com');
   const msgBox = document.getElementById('exampleFormControlTextarea1');
   const msgCont = document.getElementById('data-container');
   const email = document.getElementById('email');
@@ -51,7 +51,7 @@
   //get old messages from the server
   const messages = [];
   function getMessages() {
-    fetch('https://687a-113-161-34-227.ap.ngrok.io/messages')
+    fetch('https://chat-app-pyfz.onrender.com/messages')
       .then((response) => response.json())
       .then((data) => {
         loadDate(data);
