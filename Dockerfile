@@ -5,5 +5,5 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
-RUN ls -l
+RUN npm run build
 CMD node /dist/main
