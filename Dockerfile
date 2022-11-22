@@ -1,11 +1,11 @@
 FROM node:16
 
-# WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package*.json ./
-COPY . .
+COPY package*.json /app/
+
 RUN npm ci
 
-
+COPY . /app/
 
 CMD ["npm", "run start:dev"]
