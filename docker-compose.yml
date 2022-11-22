@@ -6,7 +6,6 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-
     volumes:
       - .:/usr/src/app
       # - /usr/src/app/node_modules
@@ -18,11 +17,13 @@ services:
       - .env
     depends_on:
       - mongo
+      
   mongo:
     image: mongo:latest
     container_name: 'nest_mongo'
     volumes:
       - mongodb_data_container:/data/db
+      - ./docker-compose-files:/docker-entrypoint-initdb.d
     env_file:
       - .env
     environment:

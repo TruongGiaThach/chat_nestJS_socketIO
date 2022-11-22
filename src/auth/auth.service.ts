@@ -3,6 +3,7 @@ import {
   NotFoundException,
   HttpException,
   HttpStatus,
+  UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from 'src/users/users.service';
@@ -24,7 +25,8 @@ export class AuthService {
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (isMatch) {
+    if (!isMatch) throw new UnauthorizedException('The password combination is invalid');
+    else {
       return user;
     }
   }

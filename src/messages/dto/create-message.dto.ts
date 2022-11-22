@@ -16,4 +16,6 @@ export class CreateMessageDto {
   @IsNotEmpty()
   @IsString()
   message: string;
+
+
 }
